@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#050505">
+  <meta name="description" content="Cartão digital de Davi Rodrigues - MD Vidros">
+  <title>MD Vidros | Davi Rodrigues</title>
+
+  <style>
+    :root {
+      --bg: #050505;
+      --card: rgba(255,255,255,.07);
+      --card-strong: rgba(255,255,255,.11);
+      --border: rgba(255,255,255,.14);
+      --text: #fff;
+      --muted: #bdbdbd;
+      --green: #25D366;
+      --green-dark: #19ad50;
+      --shadow: 0 24px 70px rgba(0,0,0,.55);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(255,255,255,.11), transparent 26%),
+        radial-gradient(circle at 85% 90%, rgba(255,255,255,.08), transparent 24%),
+        linear-gradient(145deg, #020202, #111 55%, #030303);
+      display: grid;
+      place-items: center;
+      padding: 22px 14px;
+    }
+
+    .page {
+      width: min(100%, 430px);
+      position: relative;
+    }
+
+    .glass {
+      background: linear-gradient(180deg, rgba(255,255,255,.095), rgba(255,255,255,.045));
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 28px;
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 24px 22px 18px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -80px -30px auto;
+      height: 180px;
+      background: radial-gradient(circle, rgba(255,255,255,.12), transparent 68%);
+      pointer-events: none;
+    }
+
+    .logo-wrap {
+      width: 168px;
+      height: 168px;
+      margin: 0 auto 14px;
+      border-radius: 26px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.18);
+      background: #000;
+      box-shadow: 0 15px 40px rgba(0,0,0,.45);
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    h1 {
+      margin: 6px 0 2px;
+      font-size: 1.65rem;
+      letter-spacing: -.02em;
+    }
+
+    .role {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .tagline {
+      margin: 14px auto 0;
+      color: #dfdfdf;
+      line-height: 1.45;
+      font-size: .95rem;
+      max-width: 330px;
+    }
+
+    .content {
+      padding: 0 18px 20px;
+    }
+
+    .primary-btn,
+    .action-btn {
+      appearance: none;
+      border: 0;
+      width: 100%;
+      text-decoration: none;
+      color: var(--text);
+      border-radius: 17px;
+      min-height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform .18s ease, filter .18s ease, background .18s ease;
+    }
+
+    .primary-btn {
+      background: linear-gradient(180deg, var(--green), var(--green-dark));
+      box-shadow: 0 12px 28px rgba(37,211,102,.23);
+      margin-bottom: 12px;
+    }
+
+    .primary-btn:hover,
+    .action-btn:hover { transform: translateY(-1px); filter: brightness(1.06); }
+    .primary-btn:active,
+    .action-btn:active { transform: scale(.985); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .action-btn {
+      background: var(--card);
+      border: 1px solid var(--border);
+      min-height: 58px;
+      font-size: .92rem;
+      padding: 10px;
+    }
+
+    .full { grid-column: 1 / -1; }
+
+    .info-box {
+      margin-top: 14px;
+      padding: 14px;
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 18px;
+    }
+
+    .info-title {
+      font-size: .8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      margin-bottom: 8px;
+      font-weight: 800;
+    }
+
+    .phone-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .mini-copy {
+      border: 1px solid var(--border);
+      color: #fff;
+      background: var(--card-strong);
+      border-radius: 12px;
+      padding: 9px 12px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .chip {
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.10);
+      color: #e5e5e5;
+      font-size: .84rem;
+    }
+
+    .footer {
+      text-align: center;
+      color: #8c8c8c;
+      font-size: .78rem;
+      padding: 15px 8px 2px;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: max(24px, env(safe-area-inset-bottom));
+      transform: translate(-50%, 20px);
+      background: #fff;
+      color: #111;
+      border-radius: 999px;
+      padding: 11px 16px;
+      font-size: .88rem;
+      font-weight: 800;
+      opacity: 0;
+      pointer-events: none;
+      transition: .22s ease;
+      box-shadow: 0 12px 30px rgba(0,0,0,.35);
+      white-space: nowrap;
+      z-index: 100;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    .icon { font-size: 1.15rem; }
+
+    @media (max-width: 360px) {
+      .grid { grid-template-columns: 1fr; }
+      .full { grid-column: auto; }
+      .hero { padding-inline: 16px; }
+      .content { padding-inline: 14px; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <section class="glass">
+      <header class="hero">
+        <div class="logo-wrap">
+          <img src="logo-md-vidros.png" alt="Logo MD Vidros">
+        </div>
+
+        <h1>Davi Rodrigues</h1>
+        <p class="role">Vidraceiro • MD Vidros</p>
+        <p class="tagline">
+          Soluções em vidros com atendimento rápido e orçamento pelo WhatsApp.
+        </p>
+      </header>
+
+      <div class="content">
+        <a
+          class="primary-btn"
+          href="https://wa.me/5561982769223?text=Ol%C3%A1%20Davi%21%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="icon">💬</span>
+          Solicitar orçamento
+        </a>
+
+        <div class="grid">
+          <a class="action-btn" href="tel:+5561982769223">
+            <span class="icon">📞</span>
+            Ligar agora
+          </a>
+
+          <a
+            class="action-btn"
+            href="https://www.instagram.com/mdvidrosvalparaiso/"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="icon">📷</span>
+            Instagram
+          </a>
+
+          <button class="action-btn" type="button" onclick="copyPhone()">
+            <span class="icon">📋</span>
+            Copiar telefone
+          </button>
+
+          <a class="action-btn" href="contato-davi-rodrigues.vcf" download>
+            <span class="icon">👤</span>
+            Salvar contato
+          </a>
+
+          <button class="action-btn full" type="button" onclick="shareCard()">
+            <span class="icon">📤</span>
+            Compartilhar cartão
+          </button>
+        </div>
+
+        <div class="info-box">
+          <div class="info-title">Contato</div>
+          <div class="phone-line">
+            <span>(61) 98276-9223</span>
+            <button class="mini-copy" type="button" onclick="copyPhone()">Copiar</button>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <div class="info-title">Instagram</div>
+          <div class="phone-line">
+            <span>@mdvidrosvalparaiso</span>
+            <button class="mini-copy" type="button" onclick="copyInstagram()">Copiar</button>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <div class="info-title">Serviços</div>
+          <div class="services">
+            <span class="chip">Box para banheiro</span>
+            <span class="chip">Espelhos</span>
+            <span class="chip">Janelas</span>
+            <span class="chip">Portas de vidro</span>
+            <span class="chip">Fechamentos</span>
+            <span class="chip">Orçamentos</span>
+          </div>
+        </div>
+
+        <div class="footer">
+          MD Vidros • Valparaíso e região
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const phoneDisplay = "(61) 98276-9223";
+    const instagram = "@mdvidrosvalparaiso";
+
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(window.toastTimer);
+      window.toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
+    }
+
+    async function copyText(text, successMessage) {
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast(successMessage);
+      } catch (error) {
+        const temp = document.createElement("textarea");
+        temp.value = text;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand("copy");
+        temp.remove();
+        showToast(successMessage);
+      }
+    }
+
+    function copyPhone() {
+      copyText(phoneDisplay, "Telefone copiado!");
+    }
+
+    function copyInstagram() {
+      copyText(instagram, "Instagram copiado!");
+    }
+
+    async function shareCard() {
+      const shareData = {
+        title: "MD Vidros - Davi Rodrigues",
+        text: "Contato de Davi Rodrigues, vidraceiro da MD Vidros.",
+        url: window.location.href
+      };
+
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+        } catch (error) {
+          if (error.name !== "AbortError") {
+            copyText(window.location.href, "Link copiado!");
+          }
+        }
+      } else {
+        copyText(window.location.href, "Link copiado!");
+      }
+    }
+  </script>
+</body>
+</html>
