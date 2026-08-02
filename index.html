@@ -7,6 +7,14 @@
   <meta name="description" content="Cartão digital de Davi Rodrigues - MD Vidros">
   <title>MD Vidros | Davi Rodrigues</title>
 
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="shortcut icon" href="favicon.ico">
+
   <style>
     :root {
       --bg: #050505;
@@ -86,6 +94,22 @@
       height: 100%;
       object-fit: cover;
       display: block;
+    }
+
+    .logo-insta{
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    }
+
+    .logo-insta img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
     }
 
     h1 {
@@ -285,18 +309,20 @@
           </a>
 
           <a
-            class="action-btn"
-            href="https://www.instagram.com/mdvidrosvalparaiso/"
-            target="_blank"
-            rel="noopener"
+              class="action-btn"
+              href="https://www.instagram.com/mdvidrosvalparaiso/"
+              target="_blank"
+              rel="noopener"
           >
-            <span class="icon">📷</span>
-            Instagram
+              <span class="logo-insta">
+                  <img src="ico-insta.png" alt="Instagram">
+              </span>
+              Instagram
           </a>
 
           <button class="action-btn" type="button" onclick="copyPhone()">
-            <span class="icon">📋</span>
-            Copiar telefone
+              <span class="icon">📋</span>
+              Copiar telefone
           </button>
 
           <a class="action-btn" href="contato-davi-rodrigues.vcf" download>
